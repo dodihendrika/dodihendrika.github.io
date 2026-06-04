@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>DEV.CRAFT | Modern Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Geist:wght@400;500;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&amp;family=Inter:wght@100..900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-container": "#777676",
+              "surface-container": "#1f1f1f",
+              "surface-bright": "#393939",
+              "inverse-primary": "#0059c5",
+              tertiary: "#c8c6c5",
+              "on-secondary-container": "#002a55",
+              "on-primary-container": "#ffffff",
+              error: "#ffb4ab",
+              "on-secondary-fixed-variant": "#004788",
+              surface: "#131313",
+              "primary-fixed": "#d8e2ff",
+              outline: "#8b90a0",
+              primary: "#aec6ff",
+              "inverse-on-surface": "#303030",
+              "error-container": "#93000a",
+              "on-tertiary-container": "#ffffff",
+              "tertiary-fixed": "#e5e2e1",
+              "outline-variant": "#414754",
+              "surface-variant": "#353535",
+              "on-primary-fixed": "#001a43",
+              background: "#131313",
+              "on-secondary-fixed": "#001b3c",
+              "on-tertiary-fixed-variant": "#474646",
+              "on-tertiary": "#313030",
+              "on-secondary": "#003061",
+              "on-error-container": "#ffdad6",
+              "surface-dim": "#131313",
+              "surface-tint": "#aec6ff",
+              "secondary-fixed-dim": "#a7c8ff",
+              "on-surface": "#e2e2e2",
+              "surface-container-high": "#2a2a2a",
+              "on-background": "#e2e2e2",
+              secondary: "#a7c8ff",
+              "inverse-surface": "#e2e2e2",
+              "surface-container-low": "#1b1b1b",
+              "tertiary-fixed-dim": "#c8c6c5",
+              "on-primary-fixed-variant": "#004397",
+              "on-tertiary-fixed": "#1c1b1b",
+              "on-error": "#690005",
+              "surface-container-lowest": "#0e0e0e",
+              "surface-container-highest": "#353535",
+              "secondary-container": "#3291ff",
+              "primary-fixed-dim": "#aec6ff",
+              "on-surface-variant": "#c1c6d7",
+              "secondary-fixed": "#d5e3ff",
+              "on-primary": "#002e6b",
+              "primary-container": "#0070f3",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              gutter: "24px",
+              "margin-mobile": "20px",
+              "section-gap": "80px",
+              "container-max": "1200px",
+              base: "8px",
+            },
+            fontFamily: {
+              "display-lg-mobile": ["Inter"],
+              "body-md": ["Inter"],
+              "headline-sm": ["Inter"],
+              code: ["Geist"],
+              "headline-md": ["Inter"],
+              "label-md": ["Geist"],
+              "body-lg": ["Inter"],
+              "display-lg": ["Inter"],
+            },
+            fontSize: {
+              "display-lg-mobile": [
+                "32px",
+                {
+                  lineHeight: "1.2",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+              "headline-sm": ["24px", { lineHeight: "1.3", fontWeight: "600" }],
+              code: ["14px", { lineHeight: "1.5", fontWeight: "400" }],
+              "headline-md": [
+                "32px",
+                {
+                  lineHeight: "1.2",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "label-md": [
+                "14px",
+                {
+                  lineHeight: "1.4",
+                  letterSpacing: "0.02em",
+                  fontWeight: "500",
+                },
+              ],
+              "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+              "display-lg": [
+                "48px",
+                {
+                  lineHeight: "1.1",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+      .glass-card {
+        background: rgba(18, 18, 18, 0.7);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .glass-card:hover {
+        border-color: #aec6ff;
+        box-shadow: 0 0 30px rgba(174, 198, 255, 0.1);
+        transform: translateY(-4px);
+      }
+      .glow-accent {
+        background: radial-gradient(
+          circle at center,
+          rgba(0, 112, 243, 0.15) 0%,
+          transparent 70%
+        );
+      }
+      body {
+        background-color: #000000;
+        color: #e2e2e2;
+        overflow-x: hidden;
+      }
+      .hero-gradient {
+        background: radial-gradient(
+          circle at 50% -20%,
+          rgba(0, 112, 243, 0.12) 0%,
+          transparent 50%
+        );
+      }
+      .text-glow:hover {
+        text-shadow: 0 0 8px rgba(174, 198, 255, 0.6);
+      }
+    </style>
+  </head>
+  <body class="font-body-md text-body-md">
+    <!-- Top Navigation Bar -->
+    <nav
+      class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-sm"
+    >
+      <div
+        class="flex justify-between items-center max-w-container-max mx-auto px-gutter h-16"
+      >
+        <div class="flex items-center gap-base">
+          <span
+            class="material-symbols-outlined text-primary"
+            data-icon="terminal"
+            >terminal</span
+          >
+          <span
+            class="font-code text-headline-sm font-bold tracking-tighter text-on-surface dark:text-on-surface"
+            >DEV.CRAFT</span
+          >
+        </div>
+        <div class="hidden md:flex gap-8 items-center">
+          <a
+            class="font-label-md text-label-md text-primary dark:text-primary font-bold border-b-2 border-primary py-1"
+            href="#"
+            >Home</a
+          >
+          <a
+            class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors py-1"
+            href="#projects"
+            >Projects</a
+          >
+          <a
+            class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors py-1"
+            href="#experience"
+            >Experience</a
+          >
+          <button
+            class="bg-primary-container text-on-primary-container px-6 py-2 rounded-lg font-label-md text-label-md hover:backdrop-brightness-125 transition-all duration-300 active:scale-95"
+          >
+            Resume
+          </button>
+        </div>
+        <button
+          class="md:hidden material-symbols-outlined text-on-surface"
+          data-icon="menu"
+        >
+          menu
+        </button>
+      </div>
+    </nav>
+    <main class="relative hero-gradient pt-32">
+      <!-- Hero Section -->
+      <section
+        class="max-w-container-max mx-auto px-gutter grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-section-gap"
+      >
+        <div class="lg:col-span-7 space-y-6">
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-code text-xs"
+          >
+            <span class="relative flex h-2 w-2">
+              <span
+                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"
+              ></span>
+              <span
+                class="relative inline-flex rounded-full h-2 w-2 bg-primary"
+              ></span>
+            </span>
+            AVAILABLE FOR NEW CHALLENGES
+          </div>
+          <h1
+            class="font-display-lg text-display-lg leading-tight tracking-tighter"
+          >
+            Crafting
+            <span class="text-primary italic">High-Performance</span> Digital
+            Architectures.
+          </h1>
+          <p class="text-on-surface-variant text-body-lg max-w-2xl">
+            I'm a Full-Stack Engineer specializing in building scalable cloud
+            infrastructures and high-fidelity user interfaces. Currently pushing
+            the boundaries of Web3 and AI-driven automation.
+          </p>
+          <div class="flex flex-wrap gap-4 pt-4">
+            <button
+              class="bg-primary text-on-primary px-8 py-4 rounded-xl font-bold flex items-center gap-2 transition-transform hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(174,198,255,0.3)]"
+            >
+              View Portfolio
+              <span class="material-symbols-outlined" data-icon="arrow_forward"
+                >arrow_forward</span
+              >
+            </button>
+            <button
+              class="border border-outline-variant px-8 py-4 rounded-xl font-bold text-on-surface hover:bg-surface-bright transition-colors"
+            >
+              Get in Touch
+            </button>
+          </div>
+        </div>
+        <div class="lg:col-span-5 relative group">
+          <div
+            class="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"
+          ></div>
+          <div
+            class="relative rounded-2xl overflow-hidden glass-card aspect-square"
+          >
+            <img
+              alt="Profile"
+              class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+              src="https://lh3.googleusercontent.com/aida/AP1WRLvlAi-oT2_4NAa2E4Yh1UJvFlZLU9CbxuOmkWHbD1FNWMeLO3k-QKkfFUUfzODDo_C58WgO6Q8sJY8UmVJCI2rJAERWIX5Yovhu9d3ulejk9i-vxsn2GMninYMc6YqvRJT7L04la8kdS33i1FarmfOgewhGH5hhLpm1AVIc3hQM6sSXk_AVuRgkre5lC7UaBwmjLcXaoK8DsXaq05nFcflBli1WYOGZnbvf1maRpdOvbtbwfI-FZJ5AVpGI"
+            />
+          </div>
+          <!-- Stats Floating Card -->
+          <div
+            class="absolute -bottom-6 -left-6 glass-card p-4 rounded-xl space-y-1"
+          >
+            <div class="text-primary font-bold text-headline-sm">5+</div>
+            <div class="text-on-surface-variant font-label-md">
+              Years Experience
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Bento Grid Projects Section -->
+      <section
+        class="max-w-container-max mx-auto px-gutter mb-section-gap"
+        id="projects"
+      >
+        <div class="flex justify-between items-end mb-12">
+          <div class="space-y-2">
+            <h2 class="font-headline-md text-headline-md">Selected Works</h2>
+            <p class="text-on-surface-variant">
+              A curated selection of engineering feats and creative experiments.
+            </p>
+          </div>
+          <a
+            class="text-primary font-label-md flex items-center gap-1 hover:underline"
+            href="#"
+          >
+            See all projects
+            <span
+              class="material-symbols-outlined text-sm"
+              data-icon="open_in_new"
+              >open_in_new</span
+            >
+          </a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+          <!-- Project 1 (Large) -->
+          <div
+            class="md:col-span-8 glass-card rounded-2xl overflow-hidden group"
+          >
+            <div class="aspect-video relative overflow-hidden">
+              <img
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                data-alt="A sophisticated data visualization dashboard showing real-time network traffic with glowing cyan and electric blue lines against a deep charcoal background. The interface looks professional and high-tech, featuring semi-transparent glassmorphism panels and crisp typography. Subtle lighting effects highlight specific data nodes, conveying a sense of precision and performance."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhKCXVk_iEYyo3Go4tHaPf6P7Gw4SZ4iHhL0D9wv16SNcV0ACBLiEjhxCoNhormyL-0T981f-qR2itlgS5pVrhuY0il19jt8xtSplrfDks5MwPO-hYXhfnRorpdijSKMiwJle9BFiajQV0nSA7koDapBVNmh7zryxLEJXwBUTv4tGURv1KUC92r6KCUQYglpu-LJx8PY4hK_9jSJ3vTFKZl_-JjAFI6-HvLaYsis5UP3bhVEy6V9k6W1AuIs7uxJKHGjPkA-9yFfJN"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"
+              ></div>
+            </div>
+            <div class="p-8 space-y-4">
+              <div class="flex gap-2">
+                <span
+                  class="px-3 py-1 rounded-full bg-surface-container text-xs font-code text-on-surface-variant"
+                  >Next.js</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full bg-surface-container text-xs font-code text-on-surface-variant"
+                  >Three.js</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full bg-surface-container text-xs font-code text-on-surface-variant"
+                  >WebSockets</span
+                >
+              </div>
+              <h3 class="text-headline-sm font-bold">
+                Lumina Analytics Dashboard
+              </h3>
+              <p class="text-on-surface-variant">
+                A real-time data engine processing over 50k events per second
+                with sub-100ms latency. Engineered for high-throughput
+                visualization.
+              </p>
+            </div>
+          </div>
+          <!-- Project 2 (Tall) -->
+          <div
+            class="md:col-span-4 glass-card rounded-2xl overflow-hidden group"
+          >
+            <div class="h-64 relative overflow-hidden">
+              <img
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                data-alt="A sleek close-up of a mobile security application interface featuring a futuristic fingerprint scan animation and cryptographic patterns. The color scheme is deep indigo and vibrant electric blue, with soft light glows emanating from the edges of the screen. The aesthetic is ultra-modern and focused on cybersecurity, using smooth gradients and sharp digital textures."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDz5JJv8InPp7cYf4-fZM7QSGj-KKVW8C0u72hYbOWdWltOtbKCEoJ9hBySnceHM-we4S-zNQn6g8Jf6v7dMPBow3I4ZABWBx19H3iKzsWQM0otEAVkCGCQtaYRpU2VXJHBsaJ3Fj8hgXXjgl8xlSgc7zURr8DcKF8YmWIwQnQtp1fpyLAlQxAeO22x47nZ-Zh8Di8arwCHC65pcmgp-xzWNLlEguC5hLHQPbjF97YwMwMlT7LGPsxjdLxemS8UBDgZNZS_phjeY3Nq"
+              />
+            </div>
+            <div class="p-6 space-y-4">
+              <span
+                class="px-3 py-1 rounded-full bg-surface-container text-xs font-code text-on-surface-variant"
+                >Cybersecurity</span
+              >
+              <h3 class="text-body-lg font-bold">Sentinel Guard</h3>
+              <p class="text-on-surface-variant text-body-md">
+                Biometric authentication layer for distributed cloud
+                environments.
+              </p>
+            </div>
+          </div>
+          <!-- Project 3 -->
+          <div
+            class="md:col-span-4 glass-card rounded-2xl overflow-hidden group"
+          >
+            <div class="h-48 relative overflow-hidden">
+              <img
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                data-alt="A complex network of interconnected glowing nodes representing a blockchain architecture in a dark, atmospheric digital space. Rays of blue and violet light pulse through the connections, highlighting the flow of data. The visual style is highly technical and sophisticated, mirroring the precision of modern decentralized systems and cloud computing."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJ8kLoCL48oVoGx0yQ19lImp5yPqTGtKfAVWQHh_ZweEeROBddFbJysFFDJFftYOO9cLoG58uCz-sOLGtPOM28Qzbo6khrHmyeZFrjXMUbajUGuy2X5fEySNksdIf_WYEUQZPWW0pyDmyTXHj_2BQdSJXG3s5QbvVlEv3EBvbTeQr7pZpYcGqYdohYai1t3HMGVDxZJCs_QtSjspX0UmTvJGw2q_i1U6s9WBCSf1M8s8_Ee5eKFCaz7crEoJO4i7ycMCtFIJaAvKdx"
+              />
+            </div>
+            <div class="p-6 space-y-4">
+              <span
+                class="px-3 py-1 rounded-full bg-surface-container text-xs font-code text-on-surface-variant"
+                >Rust</span
+              >
+              <h3 class="text-body-lg font-bold">Core Node 2.0</h3>
+              <p class="text-on-surface-variant text-body-md">
+                Optimized blockchain node implementation focused on memory
+                safety.
+              </p>
+            </div>
+          </div>
+          <!-- Project 4 (Wide) -->
+          <div
+            class="md:col-span-8 glass-card rounded-2xl overflow-hidden group flex flex-col md:flex-row"
+          >
+            <div class="md:w-1/2 relative overflow-hidden">
+              <img
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                data-alt="An artistic representation of artificial intelligence as shimmering, fluid particles forming a humanoid shape in a dark, tech-oriented environment. The lighting is dominated by electric blue and soft slate grays, creating a mood of advanced mystery and high performance. The image uses a bokeh effect in the background to emphasize the crystalline structure of the AI form."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxId_eAHyjcw5ewuK-yL_IjDb838cZql5pMTmA-9-mplszdL3Q-zXca5E5s0ub4ju0PEgyc27kjpj_HdqYwaiIfsRb4bQ56dVLdJs-c-wHZz8TmlKF6B97efQEN__v5pXvJUpvh6AjQuZOCPE_uJQud9wKOZ1gfTKanvlx153sGyF7hcoDwPemlBeaq1lPHt8-ZaLt0mX10IvkN_cYaTWsGTVjU_GHgGXPLHRhoNTejrcgiT4zQM0NbUHpQTDnEkyvHdGtrorxjsZg"
+              />
+            </div>
+            <div class="md:w-1/2 p-8 flex flex-col justify-center space-y-4">
+              <span
+                class="px-3 py-1 rounded-full bg-surface-container text-xs font-code text-on-surface-variant"
+                >Machine Learning</span
+              >
+              <h3 class="text-headline-sm font-bold">Neural Nexus</h3>
+              <p class="text-on-surface-variant">
+                LLM-integrated documentation generator for legacy codebase
+                migration.
+              </p>
+              <button
+                class="text-primary font-bold inline-flex items-center gap-2 group/btn"
+              >
+                Read Case Study
+                <span
+                  class="material-symbols-outlined group-hover/btn:translate-x-1 transition-transform"
+                  data-icon="chevron_right"
+                  >chevron_right</span
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Experience Timeline Section -->
+      <section
+        class="max-w-container-max mx-auto px-gutter mb-section-gap relative"
+        id="experience"
+      >
+        <div
+          class="absolute -right-24 top-0 w-96 h-96 glow-accent rounded-full -z-10 blur-[100px]"
+        ></div>
+        <h2 class="font-headline-md text-headline-md mb-12 text-center">
+          Professional Trajectory
+        </h2>
+        <div class="max-w-3xl mx-auto space-y-12">
+          <!-- Item 1 -->
+          <div
+            class="relative pl-8 border-l-2 border-outline-variant hover:border-primary transition-colors py-2"
+          >
+            <div
+              class="absolute -left-[11px] top-4 h-5 w-5 rounded-full border-4 border-background bg-primary"
+            ></div>
+            <div class="flex flex-col md:flex-row md:justify-between mb-2">
+              <h4 class="text-headline-sm font-bold">
+                Senior Software Architect
+              </h4>
+              <span class="font-code text-primary">2021 — PRESENT</span>
+            </div>
+            <div class="text-secondary font-bold mb-4">CloudScale Systems</div>
+            <p class="text-on-surface-variant leading-relaxed">
+              Leading the transition from monolithic architecture to a
+              distributed microservices ecosystem. Reduced operational costs by
+              40% through intelligent resource orchestration and automated
+              scaling policies.
+            </p>
+          </div>
+          <!-- Item 2 -->
+          <div
+            class="relative pl-8 border-l-2 border-outline-variant hover:border-primary transition-colors py-2"
+          >
+            <div
+              class="absolute -left-[11px] top-4 h-5 w-5 rounded-full border-4 border-background bg-outline"
+            ></div>
+            <div class="flex flex-col md:flex-row md:justify-between mb-2">
+              <h4 class="text-headline-sm font-bold">Full Stack Engineer</h4>
+              <span class="font-code text-on-surface-variant">2018 — 2021</span>
+            </div>
+            <div class="text-secondary font-bold mb-4">InnovaSoft Labs</div>
+            <p class="text-on-surface-variant leading-relaxed">
+              Developed high-performance React applications and Node.js backend
+              services. Spearheaded the internal UI framework adopted by 12
+              cross-functional teams.
+            </p>
+          </div>
+          <!-- Item 3 -->
+          <div
+            class="relative pl-8 border-l-2 border-outline-variant hover:border-primary transition-colors py-2"
+          >
+            <div
+              class="absolute -left-[11px] top-4 h-5 w-5 rounded-full border-4 border-background bg-outline"
+            ></div>
+            <div class="flex flex-col md:flex-row md:justify-between mb-2">
+              <h4 class="text-headline-sm font-bold">Frontend Developer</h4>
+              <span class="font-code text-on-surface-variant">2016 — 2018</span>
+            </div>
+            <div class="text-secondary font-bold mb-4">
+              Pixel Perfect Agency
+            </div>
+            <p class="text-on-surface-variant leading-relaxed">
+              Focused on high-fidelity animations and responsive web experiences
+              for Fortune 500 clients. Specialized in GSAP and performant CSS
+              architectures.
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Tech Stack Horizontal Scroll/Grid -->
+      <section
+        class="bg-surface-container-low py-16 border-y border-outline-variant/20 mb-section-gap overflow-hidden"
+      >
+        <div class="max-w-container-max mx-auto px-gutter">
+          <h3
+            class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest text-center mb-10"
+          >
+            THE CORE STACK
+          </h3>
+          <div
+            class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all"
+          >
+            <!-- Placeholder Icons/Logos -->
+            <div class="flex flex-col items-center gap-2 group">
+              <span
+                class="material-symbols-outlined text-4xl group-hover:text-primary transition-colors"
+                data-icon="cloud_queue"
+                >cloud_queue</span
+              >
+              <span class="font-code text-xs">AWS</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 group">
+              <span
+                class="material-symbols-outlined text-4xl group-hover:text-primary transition-colors"
+                data-icon="database"
+                >database</span
+              >
+              <span class="font-code text-xs">PostgreSQL</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 group">
+              <span
+                class="material-symbols-outlined text-4xl group-hover:text-primary transition-colors"
+                data-icon="code"
+                >code</span
+              >
+              <span class="font-code text-xs">TypeScript</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 group">
+              <span
+                class="material-symbols-outlined text-4xl group-hover:text-primary transition-colors"
+                data-icon="javascript"
+                >javascript</span
+              >
+              <span class="font-code text-xs">React</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 group">
+              <span
+                class="material-symbols-outlined text-4xl group-hover:text-primary transition-colors"
+                data-icon="storage"
+                >storage</span
+              >
+              <span class="font-code text-xs">Redis</span>
+            </div>
+            <div class="flex flex-col items-center gap-2 group">
+              <span
+                class="material-symbols-outlined text-4xl group-hover:text-primary transition-colors"
+                data-icon="settings_ethernet"
+                >settings_ethernet</span
+              >
+              <span class="font-code text-xs">Docker</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- CTA Section -->
+      <section class="max-w-container-max mx-auto px-gutter mb-section-gap">
+        <div
+          class="glass-card rounded-[2rem] p-12 md:p-24 text-center space-y-8 overflow-hidden relative"
+        >
+          <div class="absolute inset-0 glow-accent opacity-20 -z-10"></div>
+          <h2
+            class="font-display-lg text-display-lg tracking-tight max-w-2xl mx-auto"
+          >
+            Ready to build something
+            <span class="text-primary italic">exceptional?</span>
+          </h2>
+          <p class="text-on-surface-variant text-body-lg max-w-xl mx-auto">
+            Currently accepting select consulting projects and full-time
+            opportunities. Let's discuss your technical roadmap.
+          </p>
+          <div class="pt-4">
+            <button
+              class="bg-primary-container text-on-primary-container px-12 py-5 rounded-2xl font-bold text-body-lg hover:scale-105 active:scale-95 transition-all shadow-[0_0_30px_rgba(0,112,243,0.3)]"
+            >
+              Start a Conversation
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer
+      class="w-full py-section-gap bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant/20"
+    >
+      <div
+        class="flex flex-col md:flex-row justify-between items-center max-w-container-max mx-auto px-gutter gap-base"
+      >
+        <div class="flex flex-col gap-2">
+          <span class="font-code text-body-lg font-bold text-on-surface"
+            >DEV.CRAFT</span
+          >
+          <p class="font-body-md text-body-md text-on-surface-variant">
+            © 2024 Developer Portfolio. Built with precision.
+          </p>
+        </div>
+        <div class="flex gap-8">
+          <a
+            class="text-on-surface-variant dark:text-on-surface-variant hover:text-secondary transition-colors font-body-md text-body-md"
+            href="#"
+            >Github</a
+          >
+          <a
+            class="text-on-surface-variant dark:text-on-surface-variant hover:text-secondary transition-colors font-body-md text-body-md"
+            href="#"
+            >LinkedIn</a
+          >
+          <a
+            class="text-on-surface-variant dark:text-on-surface-variant hover:text-secondary transition-colors font-body-md text-body-md"
+            href="#"
+            >Twitter</a
+          >
+          <a
+            class="text-on-surface-variant dark:text-on-surface-variant hover:text-secondary transition-colors font-body-md text-body-md"
+            href="#"
+            >Email</a
+          >
+        </div>
+      </div>
+    </footer>
+    <script>
+      // Micro-interactions for smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // Parallax-ish effect for hero image
+      window.addEventListener("mousemove", (e) => {
+        const cards = document.querySelectorAll(".glass-card");
+        const x = e.clientX / window.innerWidth;
+        const y = e.clientY / window.innerHeight;
+
+        cards.forEach((card) => {
+          const rect = card.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            const moveX = (x - 0.5) * 10;
+            const moveY = (y - 0.5) * 10;
+            card.style.transform = `translate(${moveX}px, ${moveY}px)`;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
